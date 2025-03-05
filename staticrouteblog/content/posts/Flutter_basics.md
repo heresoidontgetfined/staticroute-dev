@@ -7,7 +7,7 @@ title = 'Flutter basics'
 <Dart> Can? Seem (Very<Verbose>);
 ```
 <br>
-I recently had the opportunity to learn the basics of DartLang and the Flutter framework. As always, it can be difficult to find guides that are the right technical depth, either they are geared towards total beginners, or seasoned Devs. There are two concepts I think are most important to understand when starting to work with Flutter are.
+I recently had the opportunity to learn the basics of DartLang and the Flutter framework. As always, it can be difficult to find guides that are the right technical depth, either they are geared towards total beginners, or seasoned Devs. There are two concepts I think are most important to understand when starting to work with Flutter.
 
 - *State management*
 

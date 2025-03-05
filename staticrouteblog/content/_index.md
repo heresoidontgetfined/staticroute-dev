@@ -4,7 +4,4 @@
 
 This is the blog and portfolio for Mike Foreman. Professional network engineer and amateur programmer. Exploring networking concepts through code. Always learning. 
 
- <img src='images/github-mark.svg' height='50' width='50'> https://github.com/heresoidontgetfined
-
-
 
