@@ -1,19 +1,34 @@
 {
   "version": "https://jsonfeed.org/version/1",
   "title": "StaticRoute.Dev",
-  "home_page_url": "https://staticroute.dev/",
-  "feed_url": "https://staticroute.dev/feed.json",
+  "home_page_url": "http://localhost:1313/",
+  "feed_url": "http://localhost:1313/feed.json",
   "description": "Blog and Portfolio",
-  "favicon": "https://staticroute.dev//assets/favicon.ico",
+  "favicon": "http://localhost:1313//assets/favicon.ico",
   "expired": false,
   "author": {
     "name": "Mike Foreman",
-    "url": "https://staticroute.dev/"
+    "url": "http://localhost:1313/"
   },
   "items": [
     
     
 
+    
+    {
+      "id": "d59fcb31c93b9557ba72063e05e05ebc1ee47157",
+      "title": "Flutter basics",
+      "summary": "",
+      "content_text": " Note: If you\u0026rsquo;ve worked with statically typed languages nothing about Dart should be too shocking and it should be pretty readable. After having spent the last 15 years or so working in really \u0026ldquo;fast\u0026rdquo; scripting languages like Powershell and Python, it has taken me some getting used to:\n\u0026lt;Dart\u0026gt; Can? Seem (Very\u0026lt;Verbose\u0026gt;); I recently had the opportunity to learn the basics of DartLang and the Flutter framework. As always, it can be difficult to find guides that are the right technical depth, either they are geared towards total beginners, or seasoned Devs. There are two concepts I think are most important to understand when starting to work with Flutter are. State management State management was a wholly new concept to me. Most of the code I\u0026rsquo;ve done up to this point takes data in at run time, performs functions, and reports or saves data as output. The most user interaction I\u0026rsquo;ve had to account for was a switch-style CLI menu. When I was researching Flutter builds I kept seeing State Management packages getting thrown around and realized it was a concept I\u0026rsquo;d have to tackle, but wasn\u0026rsquo;t exactly sure what aspects of my app would require it. If you\u0026rsquo;re a seasoned Mobile developer you\u0026rsquo;d have a gameplan for state management at scale before starting your build. If you\u0026rsquo;re me, you start making those decisions at the moment you try to write your first widget. Every UI component in Flutter is a Widget, and every Widget inherits from one of two base classes: Stateless or Stateful.\nClass inheretence ",
+      "content_html": "\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003eNote\u003c/strong\u003e: If you\u0026rsquo;ve worked with statically typed languages nothing about Dart should be too shocking and it should be pretty readable. After having spent the last 15 years or so working in really \u0026ldquo;fast\u0026rdquo; scripting languages like Powershell and Python, it has taken me some getting used to:\u003c/p\u003e\u003c/blockquote\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-Dart\" data-lang=\"Dart\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#f92672\"\u003e\u0026lt;\u003c/span\u003e\u003cspan style=\"color:#111\"\u003eDart\u003c/span\u003e\u003cspan style=\"color:#f92672\"\u003e\u0026gt;\u003c/span\u003e \u003cspan style=\"color:#111\"\u003eCan\u003c/span\u003e\u003cspan style=\"color:#f92672\"\u003e?\u003c/span\u003e \u003cspan style=\"color:#111\"\u003eSeem\u003c/span\u003e \u003cspan style=\"color:#111\"\u003e(\u003c/span\u003e\u003cspan style=\"color:#111\"\u003eVery\u003c/span\u003e\u003cspan style=\"color:#f92672\"\u003e\u0026lt;\u003c/span\u003e\u003cspan style=\"color:#111\"\u003eVerbose\u003c/span\u003e\u003cspan style=\"color:#f92672\"\u003e\u0026gt;\u003c/span\u003e\u003cspan style=\"color:#111\"\u003e);\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cbr\u003e\nI recently had the opportunity to learn the basics of DartLang and the Flutter framework. As always, it can be difficult to find guides that are the right technical depth, either they are geared towards total beginners, or seasoned Devs. There are two concepts I think are most important to understand when starting to work with Flutter are.\n\u003cul\u003e\n\u003cli\u003e\u003cem\u003eState management\u003c/em\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eState management\u003c/strong\u003e was a wholly new concept to me. Most of the code I\u0026rsquo;ve done up to this point takes data in at run time, performs functions, and reports or saves data as output. The most user interaction I\u0026rsquo;ve had to account for was a switch-style CLI menu. When I was researching Flutter builds I kept seeing State Management packages getting thrown around and realized it was a concept I\u0026rsquo;d have to tackle, but wasn\u0026rsquo;t exactly sure what aspects of my app would require it. If you\u0026rsquo;re a seasoned Mobile developer you\u0026rsquo;d have a gameplan for state management at scale before starting your build. If you\u0026rsquo;re me, you start making those decisions at the moment you try to write your first widget. Every UI component in Flutter is a Widget, and every Widget inherits from one of two base classes: Stateless or Stateful.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cem\u003eClass inheretence\u003c/em\u003e\u003c/li\u003e\n\u003c/ul\u003e\n",
+      "url": "http://localhost:1313/posts/flutter_basics/",
+      "date_published": "4036-04-09T35:44:00-06:00",
+      "date_modified": "4036-04-09T35:44:00-06:00",
+      "author": {
+        "name": "Mike Foreman",
+        "url": "http://localhost:1313/"
+      }
+    }
     
   ]
 }

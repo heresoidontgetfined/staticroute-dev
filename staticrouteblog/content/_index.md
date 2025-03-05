@@ -1,10 +1,10 @@
-## Hi there! 👋
+### Welcome to StaticRoute.dev 👋
 
-<img class="avatar" src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Pale" alt="avatar">
+<div align=right><img src="images/router2.png"  height='200' width='200'></div>
 
-This is the blog and portfolio for Mike Foreman. Professional network engineer and amateur programmer. 
+This is the blog and portfolio for Mike Foreman. Professional network engineer and amateur programmer. Exploring networking concepts through code. Always learning. 
 
-- ❤️ Github: https://github.com/heresoidontgetfined
+ <img src='images/github-mark.svg' height='50' width='50'> https://github.com/heresoidontgetfined
 
-Thanks in advance
+
 

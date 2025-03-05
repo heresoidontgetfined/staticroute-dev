@@ -3,15 +3,36 @@
     
     <title>StaticRoute.Dev</title>
     <description>Blog and Portfolio</description>
-    <link>https://staticroute.dev/</link>
+    <link>http://localhost:1313/</link>
     
     <language>en</language>
     <copyright>Copyright 2025, Calvin Tran</copyright>
-    <lastBuildDate>Tue, 04 Mar 2025 16:32:31 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 04 Mar 2025 20:05:45 -0600</lastBuildDate>
     <generator>Hugo - gohugo.io</generator>
     <docs>http://cyber.harvard.edu/rss/rss.html</docs>
-    <atom:link href="https://staticroute.dev//atom.xml" rel="self" type="application/atom+xml"/>
+    <atom:link href="http://localhost:1313//atom.xml" rel="self" type="application/atom+xml"/>
     
+    
+    <item>
+      <title>Flutter basics</title>
+      <link>http://localhost:1313/posts/flutter_basics/</link>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you&amp;rsquo;ve worked with statically typed languages nothing about Dart should be too shocking and it should be pretty readable. After having spent the last 15 years or so working in really &amp;ldquo;fast&amp;rdquo; scripting languages like Powershell and Python, it has taken me some getting used to:&lt;/p&gt;&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Dart&#34; data-lang=&#34;Dart&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Dart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;Can&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;Seem&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Very&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Verbose&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+I recently had the opportunity to learn the basics of DartLang and the Flutter framework. As always, it can be difficult to find guides that are the right technical depth, either they are geared towards total beginners, or seasoned Devs. There are two concepts I think are most important to understand when starting to work with Flutter are.
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;State management&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;State management&lt;/strong&gt; was a wholly new concept to me. Most of the code I&amp;rsquo;ve done up to this point takes data in at run time, performs functions, and reports or saves data as output. The most user interaction I&amp;rsquo;ve had to account for was a switch-style CLI menu. When I was researching Flutter builds I kept seeing State Management packages getting thrown around and realized it was a concept I&amp;rsquo;d have to tackle, but wasn&amp;rsquo;t exactly sure what aspects of my app would require it. If you&amp;rsquo;re a seasoned Mobile developer you&amp;rsquo;d have a gameplan for state management at scale before starting your build. If you&amp;rsquo;re me, you start making those decisions at the moment you try to write your first widget. Every UI component in Flutter is a Widget, and every Widget inherits from one of two base classes: Stateless or Stateful.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Class inheretence&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <author>Mike Foreman</author>
+      <guid>http://localhost:1313/posts/flutter_basics/</guid>
+      <pubDate>Tue, 04 Mar 2025 20:05:45 -0600</pubDate>
+    </item>
     
   </channel>
 </rss>
