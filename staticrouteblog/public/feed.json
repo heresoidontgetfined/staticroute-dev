@@ -1,14 +1,14 @@
 {
   "version": "https://jsonfeed.org/version/1",
   "title": "StaticRoute.Dev",
-  "home_page_url": "http://localhost:1313/",
-  "feed_url": "http://localhost:1313/feed.json",
+  "home_page_url": "https://staticroute.dev/",
+  "feed_url": "https://staticroute.dev/feed.json",
   "description": "Blog and Portfolio",
-  "favicon": "http://localhost:1313//assets/favicon.ico",
+  "favicon": "https://staticroute.dev//assets/favicon.ico",
   "expired": false,
   "author": {
     "name": "Mike Foreman",
-    "url": "http://localhost:1313/"
+    "url": "https://staticroute.dev/"
   },
   "items": [
     
