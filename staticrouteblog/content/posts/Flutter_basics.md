@@ -2,14 +2,14 @@
 date = '2025-03-04T20:05:45-06:00'
 title = 'Flutter basics'
 +++
- >**Note**: If you've worked languages that are statically typed, null-safe and allow for declaring variables (im)mutable then Dart should feel pretty readable to you. After having spent the last 15 years or so working in really "fast" scripting languages like Powershell and Python, it has taken me some getting used to:
+ >**Note**: If you've worked with languages that are statically typed, null-safe, and allow for declaring variables (im)mutable then Dart should feel pretty readable to you. After having spent the last 15 years or so working in really "fast" scripting languages like Powershell and Python, it has taken me some getting used to:
 
 ```dart
 Final <Dart> CanSeem (Very?<Verbose> atTimes)=> toMe;
 ```
 <br>
 
-I recently had the opportunity to learn the basics of DartLang and the Flutter framework. Most guides are focused on the UI creation, or are focused on experienced Devs. Not having any experience in any languages that feel similar to Dart, the latter wasn't very helpful for me. There are two concepts I was missing when I started working on my app that I now think are most important to understand when starting out: *State management* and *Class inheretence* .
+I recently had the opportunity to learn the basics of DartLang and the Flutter framework. Most guides are focused on the UI creation, or are focused on qualifying Dart structure/syntax with well known software engineering concepts. Not having any experience in any languages that feel similar to Dart, the latter wasn't very helpful for me. There are two concepts I was missing when I started working on my app that I now think are most important to understand when starting out: *State management* and *Class inheretence* .
 
 
 ### State management 
