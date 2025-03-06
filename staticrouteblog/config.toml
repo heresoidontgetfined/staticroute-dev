@@ -15,7 +15,7 @@ enableEmoji = true
 
   [params.comments]
     enabled = true
-    githubRepo = 'heresoidontgetfined/staticroute.dev'
+    githubRepo = 'heresoidontgetfined/staticroute-dev'
     theme = 'github-light'
 
 [menu]
