@@ -2,6 +2,7 @@ baseURL = 'https://staticroute.dev'
 languageCode = 'en-us'
 title = 'StaticRoute.Dev'
 theme = 'maverick'
+enableEmoji = true
 
 [permalinks]
   pages = "/:slug"
@@ -46,6 +47,7 @@ theme = 'maverick'
     noHl = false
     style = 'monokailight'
     tabWidth = 4
+    enableEmoji = true
 
 [taxonomies]
   tag = "tags"
