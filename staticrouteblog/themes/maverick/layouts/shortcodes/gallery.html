@@ -1,0 +1,8 @@
+{{ $images := .Get "images" | split "," }}
+<div class="gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+  {{ range $images }}
+  <div class="gallery-item">
+    <img src="{{ . | trim }}" alt="" style="width: 100%; height: auto; object-fit: cover;">
+  </div>
+  {{ end }}
+</div>
