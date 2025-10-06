@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Liste - http://localhost:1313/">
+    <title>Claude Code Contest - What Can You Build in One Week: Bgp sandbox | StaticRoute.Dev</title>
+    <meta name="description" content="Blog and Portfolio">
+    <meta property="og:url" content="http://localhost:1313/posts/bgp_sandbox/">
+  <meta property="og:site_name" content="StaticRoute.Dev">
+  <meta property="og:title" content="Claude Code Contest - What Can You Build in One Week: Bgp sandbox">
+  <meta property="og:description" content="This is my entry into a contest - building something cool in one week or less. I’ve wanted to explore the intersection of code and network engineering more so I geared this project toward BGP daemons.
+1: What I built: This project is an educational tool for Border Gateway Protocol. It helps users visualize BGP route advertisements between peers. It also allows the user to interact with the BGP process by: injecting routes into the BGP process and configuring import/export policies. Users can see how these policies and advertisements effect the Peer route tables in real time. It was important to me that the application use actual BGP routing instances that peer with each other.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-05T11:28:14-05:00">
+    <meta property="article:modified_time" content="2025-10-05T11:28:14-05:00">
+
+    
+  <meta itemprop="name" content="Claude Code Contest - What Can You Build in One Week: Bgp sandbox">
+  <meta itemprop="description" content="This is my entry into a contest - building something cool in one week or less. I’ve wanted to explore the intersection of code and network engineering more so I geared this project toward BGP daemons.
+1: What I built: This project is an educational tool for Border Gateway Protocol. It helps users visualize BGP route advertisements between peers. It also allows the user to interact with the BGP process by: injecting routes into the BGP process and configuring import/export policies. Users can see how these policies and advertisements effect the Peer route tables in real time. It was important to me that the application use actual BGP routing instances that peer with each other.">
+  <meta itemprop="datePublished" content="2025-10-05T11:28:14-05:00">
+  <meta itemprop="dateModified" content="2025-10-05T11:28:14-05:00">
+  <meta itemprop="wordCount" content="653">
+    
+    <link rel="canonical" href="http://localhost:1313/posts/bgp_sandbox/">
+    <link rel="icon" href="http://localhost:1313//assets/favicon.ico">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link href="https://www.google-analytics.com" rel="preconnect" crossorigin>
+    <link rel="alternate" type="application/atom+xml" title="StaticRoute.Dev" href="http://localhost:1313//atom.xml" />
+    <link rel="alternate" type="application/json" title="StaticRoute.Dev" href="http://localhost:1313//feed.json" />
+    <link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage+Grotesque">
+    
+    
+    <style>*,:after,:before{box-sizing:border-box;padding:0}body{font:1rem/1.5 bricolage grotesque,-apple-system,BlinkMacSystemFont,segoe ui,Helvetica,Arial,sans-serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;padding:2rem;background:#fffdfa;color:#000}.skip-link{position:absolute;top:-40px;left:0;background:#eee;z-index:100}.skip-link:focus{top:0}header{line-height:2;padding-bottom:1.5rem}.link{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none}.time{font-variant-numeric:tabular-nums;white-space:nowrap}blockquote{border-left:5px solid #eee;padding-left:1rem;margin:0}a,a:visited{color:inherit}a:hover,a.heading-link{text-decoration:none}pre{padding:.5rem;overflow:auto;overflow-x:scroll;overflow-wrap:normal}code,pre{font-family:San Francisco Mono,Monaco,consolas,lucida console,dejavu sans mono,bitstream vera sans mono,monospace;font-size:normal;font-size:small;background:#eee}code{margin:.1rem;border:none;overflow:visible;overflow-wrap:anywhere}ul{list-style-type:square}ul,ol{padding-left:1.2rem}.list{line-height:2;list-style-type:none;padding-left:0}.list li{padding-bottom:.1rem}.meta{color:#777}.content{max-width:70ch;margin:0 auto}header{line-height:2;display:flex;justify-content:space-between;padding-bottom:1rem}header a{text-decoration:none}header ul{list-style-type:none;padding:0}header li,header a{display:inline}h2.post{padding-top:.5rem}header ul a:first-child{padding-left:1rem}.nav{height:1px;background:#000;content:'';max-width:10%}.list li{display:flex;align-items:baseline}.list li time{flex:initial}.hr-list{margin-top:0;margin-bottom:0;margin-right:.5rem;margin-left:.5rem;height:1px;border:0;border-bottom:1px dotted #ccc;flex:1 0 1rem}.m,hr{border:0;margin:3rem 0}img{max-width:100%;height:auto}.post-date{margin:5% 0}.index-date{color:#9a9a9a}.animate-blink{animation:opacity 1s infinite;opacity:1}@keyframes opacity{0%{opacity:1}50%{opacity:.5}100%{opacity:0}}.tags{display:flex;justify-content:space-between}.tags ul{padding:0;margin:0}.tags li{display:inline}.avatar{height:120px;width:120px;position:relative;margin:-10px 0 0 15px;float:right;border-radius:50%}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ddd;text-align:left;padding:8px}th{background-color:#f2f2f2} </style>
+  
+    
+  
+  
+  <script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "articleSection": "posts",
+      "name": "Claude Code Contest - What Can You Build in One Week: Bgp sandbox",
+      "headline": "Claude Code Contest - What Can You Build in One Week: Bgp sandbox",
+      "alternativeHeadline": "",
+      "description": "\u003cblockquote\u003e\n\u003cp\u003eThis is my entry into a contest - building something cool in one week or less. I\u0026rsquo;ve wanted to explore the intersection of code and network engineering more so I geared this project toward BGP daemons.\u003c\/p\u003e\u003c\/blockquote\u003e\n\u003ch3 id=\u00221-what-i-built\u0022\u003e1: What I built:\u003c\/h3\u003e\n\u003cp\u003eThis project is an educational tool for Border Gateway Protocol. It helps users visualize BGP route advertisements between peers. It also allows the user to interact with the BGP process by: injecting routes into the BGP process and configuring import\/export policies. Users can see how these policies and advertisements effect the Peer route tables in real time. It was important to me that the application use actual BGP routing instances that peer with each other.\u003c\/p\u003e",
+      "inLanguage": "en-us",
+      "isFamilyFriendly": "true",
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "http:\/\/localhost:1313\/posts\/bgp_sandbox\/"
+      },
+      "author" : {
+          "@type": "Person",
+          "name": ""
+      },
+      "creator" : {
+          "@type": "Person",
+          "name": ""
+      },
+      "accountablePerson" : {
+          "@type": "Person",
+          "name": ""
+      },
+      "copyrightHolder" : "StaticRoute.Dev",
+      "copyrightYear" : "2025",
+      "dateCreated": "2025-10-05T11:28:14.00Z",
+      "datePublished": "2025-10-05T11:28:14.00Z",
+      "dateModified": "2025-10-05T11:28:14.00Z",
+      "publisher":{
+          "@type":"Organization",
+          "name": "StaticRoute.Dev",
+          "url": "http://localhost:1313/",
+          "logo": {
+              "@type": "ImageObject",
+              "url": "http:\/\/localhost:1313\/assets\/favicon.ico",
+              "width":"32",
+              "height":"32"
+          }
+      },
+      "image": "http://localhost:1313/assets/favicon.ico",
+      "url" : "http:\/\/localhost:1313\/posts\/bgp_sandbox\/",
+      "wordCount" : "653",
+      "genre" : [ ],
+      "keywords" : [ ]
+  }
+  </script>
+  
+  
+  </head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main</a>
+  <main id="main">
+  <div class="content">
+    <header>
+<p style="padding: 0;margin: 0;">
+  <a href="http://localhost:1313/">
+    <b>StaticRoute.Dev</b>
+    <span class="text-stone-500 animate-blink">▮</span>
+  </a>
+</p>
+<ul style="padding: 0;margin: 0;">
+  
+  
+  <li class="">
+    <a href="/posts/"><span>Posts</span></a>
+    
+  <li class="">
+    <a href="/about/"><span>About</span></a>
+    
+  </li>
+</ul>
+</header>
+<hr class="hr-list" style="padding: 0;margin: 0;">
+    <section>
+      <h2 class="post">Claude Code Contest - What Can You Build in One Week: Bgp sandbox</h2>
+      <blockquote>
+<p>This is my entry into a contest - building something cool in one week or less. I&rsquo;ve wanted to explore the intersection of code and network engineering more so I geared this project toward BGP daemons.</p></blockquote>
+<h3 id="1-what-i-built">1: What I built:</h3>
+<p>This project is an educational tool for Border Gateway Protocol. It helps users visualize BGP route advertisements between peers. It also allows the user to interact with the BGP process by: injecting routes into the BGP process and configuring import/export policies. Users can see how these policies and advertisements effect the Peer route tables in real time. It was important to me that the application use actual BGP routing instances that peer with each other.</p>
+<p>The user interacts with a custom TUI build for this project (because TUIs are cool) and after selecting their run configuration a GUI is launched with the specified daemon start-states. The TUI was built using the BubbleTea framework (GO). The frontend is built using JS/React/Cytoscape and the backend is leveraging GoBGP.</p>
+<h3 id="2-how-i-built-it-in-a-week-or-less">2. How I built it in a week or less:</h3>
+<p>I started this project on the evening of Friday October 3rd, with an idea that I&rsquo;d been kicking around for quite some time. I finished with a functional product that exceeded my expectations on the Sunday evening (10/5). My initial prompt:</p>
+<blockquote>
+Build an educational BGP sandbox app consisting of:
+<ol>
+<li>
+<p>TUI - Use: <a href="https://github.com/charmbracelet/bubbletea">https://github.com/charmbracelet/bubbletea</a> to create a TUI that launches the browser based frontend.
+-Colorful, with options to determine how many peers are included in the launch, whether they use iBGP or eBGP, etc.</p>
+</li>
+<li>
+<p>Frontend - Javascript:
+browser-based interactive UI.
+-Users see a small AS-level network w/nodes and edges.
+-Users can Toggle BGP neighborships on/off between AS nodes.
+-Inject prefixes from an AS.
+-Apply simple BGP policy knobs (local-pref, AS-path prepend, MED, community no-export).</p>
+</li>
+</ol>
+<p>The graph should update to show:
+-Best path selection (highlighted).
+-Alternate paths (dimmed).
+-Animated “packets” moving along the best path.</p>
+<p>React + Cytoscape.js or D3.
+REST or websocket connection to backend.</p>
+<ol start="3">
+<li>
+<p>Backend - GoBGP:
+Run GoBGP inside a Docker container as the routing engine.
+-A lightweight Node.js/Express service runs alongside GoBGP in the same container or compose setup.
+-This service exposes REST or WebSocket endpoints that the frontend can call. Use GoBGP documentation to determine functions to expose, such as:
+POST /enable → enables a BGP session.
+POST /disable → tears down a session.
+POST /prefixes → inject a prefix into a given AS.
+POST /policy → apply simple policy knobs.
+GET /routes → returns the RIB for best path info for visualization.
+-The service internally uses GoBGP’s gRPC API to perform these actions.
+-Fully document the API</p>
+</li>
+<li>
+<p>Containerization - Docker:</p>
+</li>
+</ol>
+<p>Provide a Dockerfile or docker-compose.yml that:
+-Runs GoBGP.
+-Runs the API service.
+-Exposes the frontend via a simple dev server (e.g., Vite/React).</p>
+<p>*This should be fully functional, no mock data. If you have questions about deployment protocols or methods feel free to ask me before deployment.</p>
+</blockquote>
+<p>Some additional prompts were used to:</p>
+<ul>
+<li>Make the TUI more decorative</li>
+<li>Change the configuration to ensure each &ldquo;Peer&rdquo; is in fact its own instance of GoBGP, rather than a single instance.</li>
+<li>Make sure the entire project can be spun up and down using docker.</li>
+<li>Add a clickable &ldquo;packet&rdquo; that looks like a condiment packet, which displays the NLRI being exchanged between Peers.</li>
+<li>Ensure import/export policies are being properly applied and can be both created and deleted by the user.</li>
+</ul>
+<h3 id="3-screenshotsdemo">3. Screenshots/Demo:</h3>
+<p><a href="https://github.com/heresoidontgetfined/bgp_sandbox">GitHub - BGP Sandbox</a></p>
+
+
+<video controls width="100%">
+  <source src="/images/BGP_screencap.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div class="gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+  <img
+  src="/images/bgp0.png"
+  alt="img3"
+  loading="lazy"
+  decoding="async"
+  class="full-width"
+/>
+
+
+<img
+  src="/images/bgp1.png"
+  alt="img1"
+  loading="lazy"
+  decoding="async"
+  class="full-width"
+/>
+
+
+<img
+  src="/images/bgp2.png"
+  alt="img2"
+  loading="lazy"
+  decoding="async"
+  class="full-width"
+/>
+
+
+<img
+  src="/images/bgp3.png"
+  alt="img3"
+  loading="lazy"
+  decoding="async"
+  class="full-width"
+/>
+
+
+<img
+  src="/images/bgp4.png"
+  alt="img3"
+  loading="lazy"
+  decoding="async"
+  class="full-width"
+/>
+</div>
+
+<h3 id="4-how-i-used-claude-sonnet-45-and-its-features">4. How I used Claude Sonnet 4.5 and its features:</h3>
+<p>I took full advantage of Sonnet 4.5, which may very well be the best coding model on the market right now, and a greenfield project where I could really let it cook without a lot of stop-checks for what changes are bieng made to the existing codebase. It moved fast from concept to raw MVP to a fully functional product that exceeded my goals.</p>
+
+      
+      <div class="post-date">
+        <span class="g time">October 5, 2025 </span> &#8729;
+         
+      </div>
+      
+    </section>
+    
+    
+    <div id="comments">
+      
+<script src="https://utteranc.es/client.js"
+    repo=heresoidontgetfined/staticroute-dev
+    issue-term="pathname"
+    theme=github-light
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+    </div>
+    
+    
+  </div>
+</main>
+</body>
+</html>

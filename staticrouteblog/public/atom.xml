@@ -7,20 +7,147 @@
     
     <language>en</language>
     <copyright>Copyright 2025, Calvin Tran</copyright>
-    <lastBuildDate>Tue, 04 Mar 2025 20:05:45 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 05 Oct 2025 11:28:14 -0500</lastBuildDate>
     <generator>Hugo - gohugo.io</generator>
     <docs>http://cyber.harvard.edu/rss/rss.html</docs>
     <atom:link href="http://localhost:1313//atom.xml" rel="self" type="application/atom+xml"/>
     
     
     <item>
+      <title>Claude Code Contest - What Can You Build in One Week: Bgp sandbox</title>
+      <link>http://localhost:1313/posts/bgp_sandbox/</link>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This is my entry into a contest - building something cool in one week or less. I&amp;rsquo;ve wanted to explore the intersection of code and network engineering more so I geared this project toward BGP daemons.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;1-what-i-built&#34;&gt;1: What I built:&lt;/h3&gt;
+&lt;p&gt;This project is an educational tool for Border Gateway Protocol. It helps users visualize BGP route advertisements between peers. It also allows the user to interact with the BGP process by: injecting routes into the BGP process and configuring import/export policies. Users can see how these policies and advertisements effect the Peer route tables in real time. It was important to me that the application use actual BGP routing instances that peer with each other.&lt;/p&gt;
+&lt;p&gt;The user interacts with a custom TUI build for this project (because TUIs are cool) and after selecting their run configuration a GUI is launched with the specified daemon start-states. The TUI was built using the BubbleTea framework (GO). The frontend is built using JS/React/Cytoscape and the backend is leveraging GoBGP.&lt;/p&gt;
+&lt;h3 id=&#34;2-how-i-built-it-in-a-week-or-less&#34;&gt;2. How I built it in a week or less:&lt;/h3&gt;
+&lt;p&gt;I started this project on the evening of Friday October 3rd, with an idea that I&amp;rsquo;d been kicking around for quite some time. I finished with a functional product that exceeded my expectations on the Sunday evening (10/5). My initial prompt:&lt;/p&gt;
+&lt;blockquote&gt;
+Build an educational BGP sandbox app consisting of:
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;TUI - Use: &lt;a href=&#34;https://github.com/charmbracelet/bubbletea&#34;&gt;https://github.com/charmbracelet/bubbletea&lt;/a&gt; to create a TUI that launches the browser based frontend.
+-Colorful, with options to determine how many peers are included in the launch, whether they use iBGP or eBGP, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Frontend - Javascript:
+browser-based interactive UI.
+-Users see a small AS-level network w/nodes and edges.
+-Users can Toggle BGP neighborships on/off between AS nodes.
+-Inject prefixes from an AS.
+-Apply simple BGP policy knobs (local-pref, AS-path prepend, MED, community no-export).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The graph should update to show:
+-Best path selection (highlighted).
+-Alternate paths (dimmed).
+-Animated “packets” moving along the best path.&lt;/p&gt;
+&lt;p&gt;React + Cytoscape.js or D3.
+REST or websocket connection to backend.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Backend - GoBGP:
+Run GoBGP inside a Docker container as the routing engine.
+-A lightweight Node.js/Express service runs alongside GoBGP in the same container or compose setup.
+-This service exposes REST or WebSocket endpoints that the frontend can call. Use GoBGP documentation to determine functions to expose, such as:
+POST /enable → enables a BGP session.
+POST /disable → tears down a session.
+POST /prefixes → inject a prefix into a given AS.
+POST /policy → apply simple policy knobs.
+GET /routes → returns the RIB for best path info for visualization.
+-The service internally uses GoBGP’s gRPC API to perform these actions.
+-Fully document the API&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Containerization - Docker:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Provide a Dockerfile or docker-compose.yml that:
+-Runs GoBGP.
+-Runs the API service.
+-Exposes the frontend via a simple dev server (e.g., Vite/React).&lt;/p&gt;
+&lt;p&gt;*This should be fully functional, no mock data. If you have questions about deployment protocols or methods feel free to ask me before deployment.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Some additional prompts were used to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make the TUI more decorative&lt;/li&gt;
+&lt;li&gt;Change the configuration to ensure each &amp;ldquo;Peer&amp;rdquo; is in fact its own instance of GoBGP, rather than a single instance.&lt;/li&gt;
+&lt;li&gt;Make sure the entire project can be spun up and down using docker.&lt;/li&gt;
+&lt;li&gt;Add a clickable &amp;ldquo;packet&amp;rdquo; that looks like a condiment packet, which displays the NLRI being exchanged between Peers.&lt;/li&gt;
+&lt;li&gt;Ensure import/export policies are being properly applied and can be both created and deleted by the user.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-screenshotsdemo&#34;&gt;3. Screenshots/Demo:&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/heresoidontgetfined/bgp_sandbox&#34;&gt;GitHub - BGP Sandbox&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;video controls width=&#34;100%&#34;&gt;
+  &lt;source src=&#34;http://localhost:1313/images/BGP_screencap.mp4&#34; type=&#34;video/mp4&#34;&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+
+&lt;div class=&#34;gallery&#34; style=&#34;display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;&#34;&gt;
+  &lt;img
+  src=&#34;http://localhost:1313/images/bgp0.png&#34;
+  alt=&#34;img3&#34;
+  loading=&#34;lazy&#34;
+  decoding=&#34;async&#34;
+  class=&#34;full-width&#34;
+/&gt;
+
+
+&lt;img
+  src=&#34;http://localhost:1313/images/bgp1.png&#34;
+  alt=&#34;img1&#34;
+  loading=&#34;lazy&#34;
+  decoding=&#34;async&#34;
+  class=&#34;full-width&#34;
+/&gt;
+
+
+&lt;img
+  src=&#34;http://localhost:1313/images/bgp2.png&#34;
+  alt=&#34;img2&#34;
+  loading=&#34;lazy&#34;
+  decoding=&#34;async&#34;
+  class=&#34;full-width&#34;
+/&gt;
+
+
+&lt;img
+  src=&#34;http://localhost:1313/images/bgp3.png&#34;
+  alt=&#34;img3&#34;
+  loading=&#34;lazy&#34;
+  decoding=&#34;async&#34;
+  class=&#34;full-width&#34;
+/&gt;
+
+
+&lt;img
+  src=&#34;http://localhost:1313/images/bgp4.png&#34;
+  alt=&#34;img3&#34;
+  loading=&#34;lazy&#34;
+  decoding=&#34;async&#34;
+  class=&#34;full-width&#34;
+/&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;4-how-i-used-claude-sonnet-45-and-its-features&#34;&gt;4. How I used Claude Sonnet 4.5 and its features:&lt;/h3&gt;
+&lt;p&gt;I took full advantage of Sonnet 4.5, which may very well be the best coding model on the market right now, and a greenfield project where I could really let it cook without a lot of stop-checks for what changes are bieng made to the existing codebase. It moved fast from concept to raw MVP to a fully functional product that exceeded my goals.&lt;/p&gt;
+</description>
+      <author>Mike Foreman</author>
+      <guid>http://localhost:1313/posts/bgp_sandbox/</guid>
+      <pubDate>Sun, 05 Oct 2025 11:28:14 -0500</pubDate>
+    </item>
+    
+    <item>
       <title>Flutter basics</title>
       <link>http://localhost:1313/posts/flutter_basics/</link>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you&amp;rsquo;ve worked languages that are statically typed, null-safe and allow for declaring variables (im)mutable then Dart should feel pretty readable to you. After having spent the last 15 years or so working in really &amp;ldquo;fast&amp;rdquo; scripting languages like Powershell and Python, it has taken me some getting used to:&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you&amp;rsquo;ve worked with languages that are statically typed, null-safe, and allow for declaring variables (im)mutable then Dart should feel pretty readable to you. After having spent the last 15 years or so working in really &amp;ldquo;fast&amp;rdquo; scripting languages like Powershell and Python, it has taken me some getting used to:&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dart&#34; data-lang=&#34;dart&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;Final&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Dart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;CanSeem&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Very&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;?&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;Verbose&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;atTimes&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;toMe&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
-&lt;p&gt;I recently had the opportunity to learn the basics of DartLang and the Flutter framework. Most guides are focused on the UI creation, or are focused on experienced Devs. Not having any experience in any languages that feel similar to Dart, the latter wasn&amp;rsquo;t very helpful for me. There are two concepts I was missing when I started working on my app that I now think are most important to understand when starting out: &lt;em&gt;State management&lt;/em&gt; and &lt;em&gt;Class inheretence&lt;/em&gt; .&lt;/p&gt;
+&lt;p&gt;I recently had the opportunity to learn the basics of DartLang and the Flutter framework. Most guides are focused on the UI creation, or are focused on qualifying Dart structure/syntax with well known software engineering concepts. Not having any experience in any languages that feel similar to Dart, the latter wasn&amp;rsquo;t very helpful for me. There are two concepts I was missing when I started working on my app that I now think are most important to understand when starting out: &lt;em&gt;State management&lt;/em&gt; and &lt;em&gt;Class inheretence&lt;/em&gt; .&lt;/p&gt;
 &lt;h3 id=&#34;state-management&#34;&gt;State management&lt;/h3&gt;
 &lt;p&gt;This was a wholly new concept to me. Most of the code I&amp;rsquo;ve done up to this point takes data in at run time, performs functions, and reports or saves data as output. The most user interaction I&amp;rsquo;ve had to account for was a switch-style CLI menu. When I was researching Flutter builds I kept seeing State Management packages getting thrown around and realized it was a concept I&amp;rsquo;d have to tackle, but wasn&amp;rsquo;t exactly sure what aspects of my app would require it. If you&amp;rsquo;re a seasoned Mobile developer you&amp;rsquo;d have a gameplan for state management at scale before starting your build. If you are me, you start making those decisions at the moment you try to write your first widget. Every UI component in Flutter is a Widget, and every Widget inherits from one of two base classes: &lt;strong&gt;Stateless&lt;/strong&gt; or &lt;strong&gt;Stateful&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Stateful vs Stateless widgets initially seems like a simple concept but can get tricky when you remember in Flutter you will at times be dealing with a series of idgets nested inside of widgets. Exactly &lt;em&gt;which&lt;/em&gt; widget needs to be Stateful? The good news is in the simple app you&amp;rsquo;re making as a beginner, if you choose the wrong widget state you&amp;rsquo;ll be fine. If you incorrectly choose Stateful, your App will be a little less efficient at compile time, no biggie. You will know pretty quickly if you incorrectly chose Stateless, when you find yourself trying to configure the &lt;a href=&#34;https://api.flutter.dev/flutter/widgets/State/setState.html&#34;&gt;setState&lt;/a&gt; command and realize it&amp;rsquo;s not available. It&amp;rsquo;s simple enough to change the widget being extended and move your stateful logic to the the state class:&lt;/p&gt;

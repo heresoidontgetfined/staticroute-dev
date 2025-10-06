@@ -1,6 +1,6 @@
 +++
 date = '2025-10-05T11:28:14-05:00'
-draft = true
+draft = false
 title = 'Claude Code Contest - What Can You Build in One Week: Bgp sandbox'
 +++
 > This is my entry into a contest - building something cool in one week or less. I've wanted to explore the intersection of code and network engineering more so I geared this project toward BGP daemons.
@@ -69,14 +69,14 @@ Some additional prompts were used to:
 
 [GitHub - BGP Sandbox](https://github.com/heresoidontgetfined/bgp_sandbox)
 
-{{< video src="BGP_screencap.mp4" >}}
+{{< video src="/images/BGP_screencap.mp4" >}}
 
 {{< gallery >}}
-![img3](bgp0.png)
-![img1](bgp1.png)
-![img2](bgp2.png)
-![img3](bgp3.png)
-![img3](bgp4.png)
+![img3](/images/bgp0.png)
+![img1](/images/bgp1.png)
+![img2](/images/bgp2.png)
+![img3](/images/bgp3.png)
+![img3](/images/bgp4.png)
 {{< /gallery >}}
 
 
