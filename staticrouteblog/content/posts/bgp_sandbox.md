@@ -80,7 +80,4 @@ Some additional prompts were used to:
 {{< /gallery >}}
 
 
-### 4. How I used Claude Sonnet 4.5 and its features:
-
-I took full advantage of Sonnet 4.5, which may very well be the best coding model on the market right now, and a greenfield project where I could really let it cook without a lot of stop-checks for what changes are bieng made to the existing codebase. It moved fast from concept to raw MVP to a fully functional product that exceeded my goals.
 
